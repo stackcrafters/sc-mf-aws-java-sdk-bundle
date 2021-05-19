@@ -9,6 +9,9 @@ jobs:
   release:
     name: Release stable version
     runs-on: self-hosted
+    permissions:
+      contents: read
+      packages: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -30,3 +33,6 @@ jobs:
 
       - name: Maven Build
         run: ./mvnw -B package
+
+      - name: Maven Publish
+        run: ./mvnw --batch-mode deploy

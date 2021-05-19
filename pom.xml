@@ -19,6 +19,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Github Packages</name>
+            <url>https://maven.pkg.github.com/stackcrafters/sc-mf-aws-java-sdk-bundle</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <artifactId>aws-java-sdk</artifactId>
