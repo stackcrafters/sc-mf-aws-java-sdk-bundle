@@ -1,0 +1,32 @@
+name: release-stable
+
+on:
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  release:
+    name: Release stable version
+    runs-on: self-hosted
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Download Coretto JDK 11
+        run: |
+          download_url="https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz"
+          wget -qO $RUNNER_TEMP/java_package.tar.gz $download_url
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'jdkfile'
+          jdkFile: ${{ runner.temp }}/java_package.tar.gz
+          java-version: '11.0.0'
+          architecture: x64
+
+      - name: Maven Build
+        run: mvn -B package
