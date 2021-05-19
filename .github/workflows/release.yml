@@ -29,4 +29,4 @@ jobs:
           architecture: x64
 
       - name: Maven Build
-        run: mvn -B package
+        run: ./mvnw -B package
