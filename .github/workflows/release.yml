@@ -31,8 +31,5 @@ jobs:
           java-version: '11.0.0'
           architecture: x64
 
-      - name: Maven Build
-        run: ./mvnw -B package
-
       - name: Maven Publish
         run: ./mvnw --batch-mode deploy
