@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-pom</artifactId>
-        <version>1.11.563</version>
+        <version>1.11.901</version>
     </parent>
     <groupId>com.stackcrafters</groupId>
     <artifactId>sc-mf-aws-java-sdk-bundle</artifactId>
@@ -32,7 +32,7 @@
             <artifactId>aws-java-sdk</artifactId>
             <groupId>com.amazonaws</groupId>
             <optional>false</optional>
-            <version>1.11.563</version>
+            <version>1.11.901</version>
         </dependency>
     </dependencies>
 
@@ -58,7 +58,9 @@
                             <include>com.amazonaws:aws-java-sdk-core</include>
                             <include>com.amazonaws:aws-java-sdk-dynamodb</include>
                             <include>com.amazonaws:aws-java-sdk-s3</include>
-                            <!--                            <include>com.amazonaws:aws-java-sdk-lambda</include>-->
+                            <include>com.amazonaws:aws-java-sdk-sqs</include>
+                            <include>com.amazonaws:aws-java-sdk-lambda</include>
+                            <include>com.amazonaws:aws-java-sdk-secretsmanager</include>
                         </includes>
                     </artifactSet>
                     <relocations>
